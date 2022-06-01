@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body %}
+    {{ redux_store('contactUsStore', {
+        csrf_token: csrf_token('authenticate')
+    }|redux_store_arguments) }}
+    {{ react_component('ContactUs') }}
+{% endblock %}
+
+

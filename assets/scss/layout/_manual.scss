@@ -1,0 +1,43 @@
+.info-manual {
+    overflow: hidden;
+    height: 0;
+    transition: height 0.3s;
+    font-size: 1.4rem;
+    line-height: normal;
+    color: var(--black);
+    max-width: 115rem;
+    flex: none;
+    margin-bottom: 1rem;
+
+    &__wrap {
+        padding: 0 2rem 2rem;
+
+        @include --xs {
+            padding-left: 0;
+        }
+
+        @include --xsh {
+            padding-left: 0;
+        }
+    }
+
+    &__block {
+        display: flex;
+        justify-content: space-around;
+        margin-bottom: 1rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__suptitle {
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+    }
+
+    &__list {
+        list-style: revert;
+        padding-left: 2rem;
+    }
+}

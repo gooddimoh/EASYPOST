@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Users
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('userStore', {'items': items, 'pagination': pagination, 'columns': columns}|redux_store_arguments) }}
+	{{ react_component('User') }}
+
+{% endblock %}

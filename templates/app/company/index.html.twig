@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company{% endblock %}
+
+{% block body %}
+    {{ redux_store('companyStore',
+        { 'items': items, 'pagination': pagination, 'columns': columns}|redux_store_arguments) }}
+    {{ react_component('Company') }}
+{% endblock %}
+
+

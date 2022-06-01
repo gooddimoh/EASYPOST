@@ -1,0 +1,650 @@
+.form {
+    display: flex;
+    flex-direction: column;
+
+    &__body {
+        padding: 4rem;
+        background-color: var(--white);
+        border: 0.1rem solid rgba(45, 23, 210, 0.1);
+        border-radius: 2.2rem;
+        box-shadow: 0 0 1.9rem rgba($color: var(--black-rgb), $alpha: 0.3);
+        height: auto;
+        overflow: auto;
+        flex-grow: 1;
+        margin: 2rem;
+
+        @include --md {
+            padding: 2rem 3rem;
+        }
+
+        @include --xs {
+            box-shadow: 0 0 1rem rgba($color: var(--black-rgb), $alpha: 0.25);
+            margin: 2rem 0 1.5rem 0;
+            padding: 2rem 3.5rem;
+        }
+
+        @include --xsh {
+            box-shadow: 0 0 1rem rgba($color: var(--black-rgb), $alpha: 0.25);
+            margin: 2rem 0 1.5rem 0;
+            padding: 2rem 3.5rem;
+        }
+
+        & + .form__body {
+            margin-top: 3.5rem;
+        }
+
+        &:last-child {
+            margin-bottom: 3.5rem;
+        }
+
+        &__label {
+            font-size: 1.5rem;
+            color: var(--placeholder-color);
+            display: inline-block;
+            font-weight: 700;
+            line-height: 2.4rem;
+            margin-bottom: 1rem;
+        }
+
+        &_carrier {
+            background-color: transparent;
+            border-radius: 0;
+            box-shadow: none;
+            border: none;
+            padding: 0.5rem;
+        }
+
+        &_label-change {
+            overflow: visible;
+        }
+    }
+
+    &__col {
+        width: 100%;
+        flex-grow: 1;
+        display: block;
+        padding-right: 3.5rem;
+
+        @include --sm {
+            margin-bottom: 1rem;
+            padding-right: 0;
+        }
+
+        @include --xs {
+            margin-bottom: 1rem;
+            padding-right: 0;
+        }
+
+        @include --xsh {
+            margin-bottom: 1rem;
+            padding-right: 0;
+        }
+
+        &:last-child {
+            padding-right: 0;
+            padding-bottom: 0;
+        }
+
+        &_4-12 {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: (100% / (12 / 4));
+            max-width: (100% / (12 / 4));
+
+            @include --sm {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            @include --xs {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            @include --xsh {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+
+        &_8-12 {
+            flex-grow: 0;
+            flex-shrink: 0;
+            flex-basis: (100% / (12 / 8));
+            max-width: (100% / (12 / 8));
+
+            @include --sm {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            @include --xs {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+
+            @include --xsh {
+                flex-basis: 100%;
+                max-width: 100%;
+            }
+        }
+    }
+
+    &__row {
+        display: flex;
+        padding-bottom: 3.5rem;
+
+        &:last-child {
+            padding-bottom: 0;
+        }
+
+        @include --sm {
+            flex-direction: column;
+        }
+
+        @include --xs {
+            padding-bottom: 2rem;
+        }
+
+        @include --xsh {
+            padding-bottom: 2rem;
+        }
+
+        div.custom-select__control {
+            min-width: 13rem;
+        }
+
+        &_auth {
+            flex-direction: column;
+        }
+
+        &_label-change {
+            @include --xs {
+                flex-direction: column;
+            }
+            @include --xsh {
+                flex-direction: column;
+            }
+        }
+
+        &_funds-modal {
+            & > div {
+                width: 100%;
+            }
+        }
+
+        &_center {
+            display: flex;
+            justify-content: center;
+        }
+    }
+
+    &__block {
+        margin-right: 3.5rem;
+        &:last-child {
+            margin-right: 0;
+        }
+    }
+
+    &__content {
+        // overflow: auto;
+    }
+
+    &__btn {
+        width: 100%;
+        border: none;
+        background-color: var(--primary);
+        box-shadow: 0 0.2rem 0.2rem var(--primary);
+        font-size: 1.4rem;
+        line-height: normal;
+        font-weight: 400;
+        color: var(--white);
+        padding: 0.9rem;
+        margin-top: 1rem;
+
+        &:disabled {
+            opacity: 1;
+            background-color: var(--disabled-bg);
+            color: var(--disabled-color);
+        }
+    }
+
+    &__title {
+        position: relative;
+        font-size: 1.8rem;
+        line-height: normal;
+        font-family: $font;
+        font-weight: bold;
+        width: 100%;
+        color: var(--primary);
+    }
+
+    &__description {
+        color: var(--text-medium-hover);
+        text-align: center;
+        font-size: 1.5rem;
+        line-height: 2.2rem;
+        flex-grow: 1;
+    }
+
+    &__error {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        color: var(--error);
+        margin-bottom: 1.5rem;
+
+        &:empty {
+            display: none;
+        }
+
+        &_funds-modal {
+            text-align: center;
+        }
+    }
+
+    &__footer {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 2rem;
+
+        @include --xs {
+            flex-direction: column-reverse;
+            padding: 0;
+            margin: 0;
+        }
+
+        @include --xsh {
+            padding-right: 1rem;
+            margin: 0;
+        }
+
+        & > .button {
+            margin-right: 4rem;
+            &:last-child {
+                margin-right: 0;
+            }
+
+            @include --xs {
+                margin-right: 0;
+                margin-top: 1rem;
+            }
+        }
+
+        &_user-change,
+        &_company-change {
+            @include --xs {
+                flex-direction: row;
+            }
+        }
+    }
+
+    &_carrier {
+        background-color: transparent;
+        border-radius: 0;
+    }
+
+    &_dashboard {
+        flex-grow: 1;
+    }
+
+    &_user-change,
+    &_address-change,
+    &_label-change,
+    &_company-change,
+    &_transaction-change {
+        margin-bottom: 2rem;
+    }
+}
+
+.form-info {
+    display: flex;
+    flex-grow: 1;
+    &__wrap {
+        display: flex;
+        flex-grow: 1;
+        overflow: auto;
+
+        @include --xs {
+            flex-direction: column;
+        }
+    }
+
+    &__block {
+        @include --xs {
+            margin-bottom: 1.5rem;
+        }
+        @include --xsh {
+            margin-right: 1rem;
+        }
+        &--small {
+        }
+        &--big {
+            display: flex;
+            flex-grow: 1;
+            overflow: auto;
+        }
+    }
+
+    &__profile {
+        background-color: var(--white);
+        width: 23rem;
+        height: 100%;
+        word-break: break-all;
+        overflow: hidden;
+        box-sizing: border-box;
+        padding: 1.8rem 2.5rem;
+
+        @include --lg {
+            padding: 2rem 1rem;
+            width: 22rem;
+        }
+
+        @include --md {
+            overflow-y: auto;
+        }
+
+        @include --sm {
+            width: 18rem;
+        }
+
+        @include --xs {
+            width: 100%;
+            margin-right: 0;
+            padding: 1rem;
+        }
+
+        @include --xsh {
+            padding: 1rem;
+        }
+
+        &-block {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 3.5rem;
+            flex-wrap: wrap;
+            color: var(--black);
+
+            @include --xs {
+                margin-bottom: 1rem;
+            }
+
+            &--center {
+                justify-content: center;
+            }
+
+            &--column {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+
+            &--width {
+                width: 100%;
+                display: flex;
+                align-items: center;
+
+                & .main-circle > svg {
+                    height: 2rem;
+                    width: 2rem;
+                }
+            }
+
+            &:empty {
+                display: none;
+            }
+        }
+        &-arrow {
+        }
+        &-edit {
+        }
+        &-name {
+            word-break: break-word;
+            font: 700 2.4rem/3.2rem $font;
+            color: var(--text-hight);
+
+            @include --xs {
+                font-size: 1.6rem;
+                line-height: 2.5rem;
+            }
+
+            @include --xsh {
+                font-size: 1.6rem;
+                line-height: 2.5rem;
+            }
+        }
+        &-phone {
+            word-break: break-word;
+            font-size: 1.6rem;
+            color: var(--text-hight);
+        }
+        &-link {
+            color: var(--black);
+            transition: all 0.2s;
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        &-icon {
+            display: flex;
+            padding: 0.5rem;
+
+            & .arrow-left {
+                fill: var(--primary);
+                width: 1.5rem;
+                height: 2.4rem;
+            }
+
+            &:hover {
+                .arrow-left {
+                    fill: var(--link-hover);
+                }
+            }
+        }
+        &-image {
+            width: 13rem;
+            height: 13rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--background-color);
+            border-radius: 50%;
+            margin: 0 auto 0.9rem;
+
+            @include --sm {
+                width: 13rem;
+                height: 13rem;
+            }
+
+            @include --xs {
+                width: 9rem;
+                height: 9rem;
+                margin: 0 auto;
+            }
+
+            @include --xsh {
+                width: 13rem;
+                height: 13rem;
+                margin: 0 auto;
+            }
+
+            & > img {
+                border-radius: 50%;
+                max-width: 100%;
+                height: auto;
+            }
+        }
+        &-label {
+            width: 100%;
+            font-size: 1.4rem;
+            line-height: normal;
+            color: var(--icon-gray);
+            margin-bottom: 0.5rem;
+
+            @include --xs {
+                margin-bottom: 0;
+                width: 100%;
+            }
+        }
+        &-value {
+            word-break: break-word;
+        }
+        &-email {
+            color: var(--text-medium);
+        }
+        &-img {
+        }
+    }
+}
+
+.tabs {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 0 2rem;
+    margin-bottom: 5rem;
+
+    @include --xs {
+        padding: 0;
+        margin-bottom: 0;
+    }
+    @include --xsh {
+        padding: 0;
+        margin-bottom: 0;
+    }
+
+    &_user-view {
+        overflow: hidden;
+    }
+
+    & .table-wrap {
+        margin: 0;
+    }
+
+    &__wrap {
+        margin-bottom: 3.5rem;
+        display: flex;
+
+        @include --xs {
+            margin-bottom: 1.5rem;
+        }
+
+        @include --xsh {
+            margin-bottom: 1.5rem;
+        }
+    }
+
+    &__list {
+        border-bottom: 0.1rem solid rgba(104, 49, 220, 0.5);
+        align-self: flex-start;
+        display: flex;
+        flex-grow: 0;
+        overflow: auto hidden;
+    }
+
+    &__content {
+        display: flex;
+        overflow: hidden;
+        flex-grow: 1;
+    }
+
+    &__item {
+        display: flex;
+        overflow: hidden;
+        flex-direction: column;
+        flex-grow: 1;
+    }
+
+    &__control {
+        background-color: transparent;
+        margin-right: 4rem;
+        position: relative;
+        display: inline-block;
+        color: var(--black);
+        padding: 0 2rem 0.5rem 0;
+        cursor: pointer;
+        transition: color 0.2s;
+        font-size: 1.8rem;
+        line-height: normal;
+
+        @include --lg {
+            margin-right: 2rem;
+        }
+
+        @include --xs {
+            margin-right: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        @include --xsh {
+            margin-right: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: calc(100% - 0.1rem);
+            right: 0;
+            width: 0;
+            background-color: rgba(104, 49, 220, 0.5);
+            height: 0.2rem;
+            transition-property: width;
+            transition-duration: 0.4s;
+            transition-timing-function: cubic-bezier(0.58, 0.3, 0.005, 1);
+        }
+
+        &:last-child {
+            margin-right: 0;
+        }
+
+        &:hover {
+            &:before {
+                left: 0;
+                right: auto;
+                width: 100%;
+                background-color: var(--border-purple-heart);
+            }
+        }
+
+        &_active {
+            &:before {
+                left: 0;
+                right: auto;
+                width: 100%;
+                background-color: var(--border-purple-heart);
+            }
+        }
+    }
+}
+
+.tab-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 3rem;
+    background-color: var(--inner-content);
+    min-height: min-content;
+    border: 0.1rem solid var(--shadow);
+    padding: 1.5rem;
+    flex-wrap: wrap;
+
+    @include --xs {
+        flex-direction: column;
+        margin-bottom: 1rem;
+        padding: 0.5rem;
+    }
+
+    @include --xsh {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    &__title {
+        font-weight: 700;
+        line-height: 2.4rem;
+        width: max-content;
+        color: var(--text-hight);
+    }
+}

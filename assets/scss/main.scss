@@ -1,0 +1,24 @@
+/* Import common styles */
+@import './common/fonts.scss';
+@import './common/reset.scss';
+@import './common/mixins.scss';
+@import './common/base.scss';
+@import './common/variables.scss';
+@import './common/buttons.scss';
+
+// Import layout styles
+@import './layout/header.scss';
+@import './layout/footer.scss';
+@import './layout/animations.scss';
+@import './layout/auth.scss';
+@import './layout/modal.scss';
+@import './layout/form.scss';
+@import './layout/table.scss';
+@import './layout/input.scss';
+@import './layout/dayPicker.scss';
+@import './layout/carrier.scss';
+@import './layout/manual.scss';
+@import './layout/general.scss';
+@import './layout/about.scss';
+@import './layout/statistics';
+@import './layout/accordion';

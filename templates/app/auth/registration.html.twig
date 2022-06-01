@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Registration{% endblock %}
+
+{% block body %}
+    {{ redux_store('registrationStore', {
+
+    }|redux_store_arguments) }}
+    {{ react_component('Registration') }}
+{% endblock %}

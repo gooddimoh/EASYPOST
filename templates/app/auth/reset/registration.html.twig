@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Login{% endblock %}
+
+{% block body %}
+    {{ redux_store('loginStore', {
+        csrf_token: csrf_token('authenticate')
+    }|redux_store_arguments) }}
+    {{ react_component('Login') }}
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ company.name.value }}
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('companyViewStore', {
+        'view': {
+            'id' : company.id.value,
+            'name' : company.name.value,
+            'type' : company.type.value,
+            'photo' : company.photo.value,
+            'packagePlan' : company.package.id
+        },
+        'pagination': pagination,
+        'items': items,
+        'columns': columns,
+    }|redux_store_arguments) }}
+	{{ react_component('CompanyView') }}
+
+{% endblock %}

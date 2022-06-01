@@ -1,0 +1,55 @@
+{
+    "Analytics": {
+        "link": "/statistics",
+        "img": "icon_analytics",
+        "permissions_type": "check",
+        "permissions": "ROLE_ADMIN"
+    },
+    "Dashboard": {
+        "link": "/",
+        "img": "icon_board"
+    },
+    "Users": {
+        "link": "/users",
+        "img": "icon_people"
+    },
+    "Companies": {
+        "link": "/companies",
+        "img": "icon_company",
+        "permissions_type": "check",
+        "permissions": "ROLE_ADMIN"
+    },
+    "Address books": {
+        "link": "/address-books",
+        "img": "icon_book"
+    },
+    "Labels": {
+        "link": "/labels",
+        "img": "icon_label"
+    },
+    "Transactions": {
+        "link": "/transactions",
+        "img": "icon_transaction"
+    },
+    "Packages": {
+        "link": "/packages",
+        "img": "icon_package",
+        "permissions_type": "check"
+    },
+    "Carriers": {
+        "link": "/carriers",
+        "img": "icon_carrier",
+        "permissions_type": "check",
+        "permissions": "ROLE_CARRIERS"
+    },
+    "Contact Us": {
+        "link": "/contact",
+        "img": "icon_contact-us"
+    },
+    "News": {
+        "link": "/news",
+        "img": "icon_news",
+        "permissions_type": "check",
+        "permissions": "ROLE_ADMIN"
+    }
+}

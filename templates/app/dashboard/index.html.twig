@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    {{ redux_store('dashboardStore',
+        {'news': { 'items': news.items }}|redux_store_arguments) }}
+    {{ react_component('Dashboard') }}
+{% endblock %}
+
+

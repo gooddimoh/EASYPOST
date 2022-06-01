@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Address Books
+{% endblock %}
+
+{% block body %}
+	{{ redux_store('addressStore',
+        { 'items': items, 'pagination': pagination, 'columns': columns}|redux_store_arguments) }}
+	{{ react_component('Address') }}
+{% endblock %}

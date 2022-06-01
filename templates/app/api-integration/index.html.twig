@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}API Integration{% endblock %}
+
+{% block body %}
+    {{ redux_store('apiIntegrationStore', {
+        csrf_token: csrf_token('authenticate')
+    }|redux_store_arguments) }}
+    {{ react_component('ApiIntegration') }}
+{% endblock %}
+
+

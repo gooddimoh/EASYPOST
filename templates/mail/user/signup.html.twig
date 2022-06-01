@@ -1,0 +1,13 @@
+{#{% extends 'mail.html.twig' %}#}
+
+{% block body %}
+
+    <p>Your login credentials:</p>
+
+    {% set url = url('dashboard.index') %}
+
+    Login: {{ email }} <br/>
+    Password: {{ password }}
+    <p><a href="{{ url }}">{{ url }}</a></p>
+
+{% endblock %}

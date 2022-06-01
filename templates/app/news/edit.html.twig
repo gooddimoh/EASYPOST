@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit news{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('newsEditStore', {
+        'id' : news.id.value,
+        'title' : news.title.value,
+        'photo' : news.photo.value,
+        'description' : news.description.value,
+        'link' : news.link.value,
+    }|redux_store_arguments) }}
+    {{ react_component('NewsEdit') }}
+
+{% endblock %}
+
+

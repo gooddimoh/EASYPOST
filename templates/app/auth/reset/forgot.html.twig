@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Forgot{% endblock %}
+
+{% block body %}
+    {{ redux_store('forgotStore', {}|redux_store_arguments) }}
+    {{ react_component('Forgot') }}
+{% endblock %}
+
+

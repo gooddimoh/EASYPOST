@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Transaction create
+{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('transactionCreateStore', {
+        id: id|default('')
+    }|redux_store_arguments) }}
+    {{ react_component('TransactionCreate') }}
+
+{% endblock %}
+
+
+

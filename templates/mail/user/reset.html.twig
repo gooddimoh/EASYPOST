@@ -1,0 +1,9 @@
+{% block body %}
+
+    <p>Password Reset Link:</p>
+
+    {% set url = url('auth.reset', {'token': token}) %}
+
+    <p><a href="{{ url }}">{{ url }}</a></p>
+
+{% endblock %}

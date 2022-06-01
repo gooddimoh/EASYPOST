@@ -1,0 +1,11 @@
+const Constants = {
+    CHANGE_FORM: 'CHANGE_FORM',
+    VALIDATE_FORM: 'VALIDATE_FORM',
+
+    FORM_REQUESTED: 'FORM_REQUESTED',
+    FORM_SUCCEEDED: 'FORM_SUCCEEDED',
+    FORM_FAILED: 'FORM_FAILED',
+    FORM_RESET: 'FORM_RESET',
+};
+
+export default Constants;

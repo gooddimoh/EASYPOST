@@ -1,0 +1,492 @@
+.input {
+    background-color: var(--input-bg-color);
+    font-size: 1.8rem;
+    line-height: normal;
+    padding: 1.2rem 2.5rem;
+    font-family: $font;
+    width: 100%;
+    max-width: 100%;
+    transition: 0.3s;
+    resize: none;
+    text-overflow: ellipsis;
+    font-weight: normal;
+    color: var(--black);
+    border: none;
+    border-bottom: 0.2rem solid var(--input-border);
+    border-radius: 0;
+
+    @include --sm {
+        font-size: 1.4rem;
+    }
+
+    @include --xs {
+        padding: 1rem 0.5rem;
+    }
+
+    @include --xsh {
+        padding: 0.8rem 0.5rem;
+    }
+
+    &::placeholder {
+        color: var(--input-border);
+    }
+
+    &:focus {
+        border-color: rgba(var(--primary-rgb), 0.5);
+    }
+
+    &_textarea {
+        min-height: 16rem;
+        border: 0.2rem solid var(--input-border);
+
+        @include --xs {
+            min-height: 17rem;
+        }
+
+        @include --xsh {
+            min-height: 17rem;
+        }
+    }
+
+    &_dashboard {
+        padding-right: 0;
+        text-overflow: ellipsis;
+    }
+
+    &_stripe {
+        padding: 0.95rem 1.6rem;
+    }
+
+    &[data-error='true'] {
+        border-color: var(--error);
+    }
+
+    &:disabled {
+        opacity: 0.6; // need to change this style when we find a designer
+    }
+}
+
+.checkbox {
+    display: flex;
+    align-items: center;
+
+    &__input {
+        appearance: auto;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    &__label {
+        padding-left: 1rem;
+        cursor: pointer;
+
+        @include --xs {
+            font-size: 1.3rem;
+            line-height: 1.6rem;
+        }
+
+        @include --xsh {
+            font-size: 1.3rem;
+            line-height: 1.6rem;
+        }
+    }
+}
+
+.radio {
+    display: flex;
+    align-items: center;
+
+    &__input {
+        appearance: auto;
+        margin: 0;
+        cursor: pointer;
+    }
+
+    &__label {
+        padding-left: 1rem;
+        cursor: pointer;
+    }
+}
+
+.wrap-input {
+    flex-grow: 1;
+
+    &_reverse {
+        display: flex;
+        flex-direction: column;
+
+        & .wrap-input__warning {
+            order: 1;
+            padding-bottom: 0;
+            padding-top: 1rem;
+        }
+    }
+
+    &_phone {
+        display: flex;
+
+        .wrap-input {
+            &:last-child {
+                flex-grow: 1;
+            }
+
+            @include --xs {
+                &:first-child {
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        div.custom-select {
+            min-width: 12rem;
+            margin-right: 1.5rem;
+
+            @include --xs {
+                min-width: 8rem;
+            }
+
+            &__control {
+                min-width: 12rem;
+                max-width: 100%;
+
+                @include --xs {
+                    min-width: 8rem;
+                }
+            }
+        }
+    }
+
+    &__warning {
+        color: var(--error);
+        font-size: 1.2rem;
+        line-height: normal;
+        margin-top: 0.5rem;
+    }
+}
+
+.label {
+    display: inline-block;
+    font-family: $font;
+    font-size: 1.8rem;
+    line-height: normal;
+    font-weight: 500;
+    margin-bottom: 0.7rem;
+    width: max-content;
+    color: var(--black);
+
+    @include --sm {
+        font-size: 1.6rem;
+    }
+
+    @include --xs {
+        font-size: 1.4rem;
+    }
+    @include --xsh {
+        font-size: 1.4rem;
+    }
+
+    &_carrier {
+        font-size: 1.4rem;
+    }
+
+    &_auth {
+        font-weight: normal;
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        color: var(--black);
+
+        @include --sm {
+            font-size: 1.6rem;
+            line-height: 2rem;
+        }
+    }
+
+    &.required {
+        &:after {
+            content: ' *';
+            color: var(--primary);
+        }
+    }
+}
+
+.input-description {
+    font-family: $font;
+    font-size: 1.3rem;
+    line-height: normal;
+    font-weight: 400;
+    margin-top: 0.5rem;
+    width: max-content;
+    color: var(--input-border);
+}
+
+.magnify-glass {
+    position: relative;
+}
+
+.main-timepicker__wrapper {
+    .input {
+        padding-left: 3rem;
+    }
+}
+
+div.react-datepicker {
+    display: flex;
+
+    &-wrapper {
+        width: 100%;
+    }
+
+    ul.react-datepicker__time-list {
+        max-height: 18rem;
+    }
+
+    &__time-list-item {
+        font-size: 1.2rem;
+    }
+
+    &__header--time--only {
+        display: none;
+    }
+
+    &__day-name,
+    &__day,
+    &__time-name {
+        font-size: 1.4rem;
+        width: 2.2rem;
+        height: 2.2rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        &:hover {
+            border-radius: 1rem;
+        }
+    }
+
+    &__time-container,
+    &__time,
+    &__time-box,
+    &__time-list,
+    &__time-list-item {
+        font-size: 1.5rem;
+    }
+
+    &__current-month,
+    &-time__header,
+    &-year-header {
+        font-size: 1.2rem;
+    }
+
+    &__day--keyboard-selected,
+    &__month-text--keyboard-selected,
+    &__quarter-text--keyboard-selected,
+    &__year-text--keyboard-selected {
+        border-radius: 1rem;
+    }
+
+    &__day--selected,
+    &__day--in-selecting-range,
+    &__day--in-range,
+    &__month-text--selected,
+    &__month-text--in-selecting-range,
+    &__month-text--in-range,
+    &__quarter-text--selected,
+    &__quarter-text--in-selecting-range,
+    &__quarter-text--in-range,
+    &__year-text--selected,
+    &__year-text--in-selecting-range,
+    &__year-text--in-range {
+        border-radius: 1rem;
+        &:hover {
+            border-radius: 1rem;
+        }
+    }
+
+    &-popper {
+        z-index: 99;
+    }
+}
+
+.DayPickerInput > .input {
+    padding-left: 3rem !important;
+}
+
+.password-wrap {
+    position: relative;
+
+    & input {
+        padding-right: 4.2rem;
+    }
+
+    &__btn {
+        background-color: transparent;
+        border-radius: 0.3rem;
+        padding: 0 0.6rem;
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+
+        & > svg {
+            @include --xs {
+                width: 2.5rem;
+                height: 1.4rem;
+            }
+            @include --xsh {
+                width: 2.5rem;
+                height: 1.4rem;
+            }
+        }
+    }
+}
+
+/*----------------------------------------------CUSTOM-SELECT-----------------------------------------------------*/
+
+div.custom-select {
+    font-size: 1.8rem;
+    line-height: normal;
+
+    &__control {
+        border-radius: 0;
+        background-color: var(--input-bg-color);
+        min-width: 8rem;
+        border: none;
+        border-bottom: 0.2rem solid var(--input-border);
+
+        @include --xs {
+            min-height: 3rem;
+        }
+
+        @include --xsh {
+            min-height: 3rem;
+        }
+
+        &--is-focused {
+            border-color: rgba(var(--primary-rgb), 0.5);
+            box-shadow: none;
+
+            &:hover {
+                border-color: var(--input-border);
+            }
+        }
+    }
+
+    &--is-disabled {
+        opacity: 0.6; // need to change this style when we find a designer
+    }
+
+    &__menu {
+        background-color: var(--background-color);
+        &-list {
+            @include --xsh {
+                max-height: 10rem;
+            }
+        }
+    }
+
+    &__menu-portal {
+        z-index: 120;
+    }
+
+    &__value-container {
+        padding: 1.2rem 2.5rem;
+        width: 13rem;
+
+        @include --sm {
+            padding: 1rem 2.5rem;
+        }
+
+        @include --xs {
+            padding: 0.8rem 0.5rem;
+            width: 8rem;
+        }
+
+        @include --xsh {
+            padding: 0.8rem 0.5rem;
+        }
+
+        & [class*='-Input'] {
+            margin: 0;
+            padding: 0;
+        }
+
+        & [class*='css-'] {
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__multi-value {
+        margin-left: 1.7rem;
+    }
+
+    &__indicator {
+        padding: 0.8rem 1.5rem;
+        color: var(--primary);
+
+        @include --xs {
+            padding: 0.45rem;
+        }
+
+        @include --xsh {
+            padding: 0.45rem;
+        }
+    }
+
+    &__indicator-separator {
+        width: 0.2rem;
+        background-color: rgba(197, 197, 197, 0.4);
+        margin: 0.9rem 0;
+    }
+
+    &__option {
+        @include --xs {
+            font-size: 1.4rem;
+            padding: 0.4rem;
+        }
+        @include --xsh {
+            font-size: 1.4rem;
+            padding: 0.4rem 1.2rem;
+        }
+        &--is-focused {
+            background-color: rgba(42, 76, 197, 0.5);
+            color: var(--white);
+        }
+
+        &--is-selected {
+            background-color: var(--primary);
+        }
+    }
+
+    &__single-value {
+        color: var(--black);
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 10rem;
+
+        @include --sm {
+            max-width: 9rem;
+        }
+
+        @include --xs {
+            font-size: 1.4rem;
+        }
+        @include --xsh {
+            font-size: 1.4rem;
+        }
+    }
+
+    &__placeholder {
+        @include --xs {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 9rem;
+        }
+
+        @include --xsh {
+            text-overflow: ellipsis;
+            overflow: hidden;
+            max-width: 9rem;
+        }
+    }
+}
+/*----------------------------------------------/CUSTOM-SELECT-----------------------------------------------------*/

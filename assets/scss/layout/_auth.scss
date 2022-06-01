@@ -1,0 +1,351 @@
+.auth {
+    padding: 0;
+    display: flex;
+    overflow: auto;
+    justify-content: center;
+    flex-grow: 1;
+    background-image: url('../../images/background-login.webp');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    box-sizing: border-box;
+
+    @include --sm {
+        padding: 5rem 3rem;
+    }
+
+    &__wrap {
+        margin: auto;
+        align-items: flex-start;
+        padding: 5rem;
+
+        @include --sm {
+            padding: 0;
+        }
+    }
+
+    &__content {
+        box-shadow: 0 0 1rem rgba(0, 0, 0, 0.3);
+        border-radius: 2.2rem;
+        background-color: var(--background-color);
+        padding: 4.2rem 4.5rem 3rem 4.5rem;
+        width: 51.5rem;
+        max-width: 55rem;
+        height: auto;
+
+        & > .form__body_registration {
+            padding: 0;
+            background-color: transparent;
+            border: none;
+            border-radius: 0;
+            box-shadow: none;
+            margin: 0;
+            width: auto;
+            height: 75rem;
+        }
+
+        @include --sm {
+            width: 100%;
+            max-width: 100%;
+            padding: 2rem 3rem;
+        }
+    }
+
+    &__title {
+        text-align: center;
+        font-weight: 700;
+        font-size: 3rem;
+        line-height: 3.7rem;
+        width: 100%;
+        &-link {
+            &:active,
+            &:focus,
+            &:hover {
+                color: var(--primary-hover);
+            }
+        }
+
+        @include --sm {
+            font-size: 2.4rem;
+            line-height: 2.9rem;
+        }
+
+        @include --xs {
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+        }
+    }
+
+    &__logo {
+        margin-bottom: 6rem;
+        text-align: center;
+
+        @include --xsh {
+            margin-bottom: 2rem;
+        }
+
+        &-link {
+            background-color: var(--primary);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            & > img {
+                width: 20rem;
+            }
+        }
+    }
+
+    &__form {
+        &-row:not(:last-child) {
+            margin-bottom: 1rem;
+        }
+    }
+
+    &__desc {
+        .success {
+            padding-top: 3rem;
+            text-align: left;
+        }
+
+        &-wait {
+            font-size: 1.6rem;
+            line-height: 2.2rem;
+            text-align: center;
+            color: var(--black);
+            margin-bottom: 2rem;
+            &:last-child {
+                margin-bottom: 0;
+            }
+            &-bold {
+                font-weight: bold;
+            }
+        }
+        &-forgot {
+            color: var(--black);
+            font-weight: 300;
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+            text-align: center;
+
+            @include --xs {
+                font-size: 1.4rem;
+                line-height: 1.7rem;
+            }
+
+            @include --xsh {
+                font-size: 1.4rem;
+                line-height: 1.7rem;
+            }
+        }
+    }
+
+    &__forgot {
+        display: flex;
+        justify-content: flex-end;
+        margin-bottom: 7rem;
+
+        @include --sm {
+            margin-bottom: 0;
+        }
+
+        @include --xsh {
+            margin-bottom: 0;
+        }
+
+        &-link {
+            font-weight: normal;
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+            display: flex;
+            align-items: center;
+            color: var(--forgot-color);
+            &:active,
+            &:focus,
+            &:hover {
+                color: var(--primary-hover);
+            }
+
+            @include --xs {
+                font-size: 1.4rem;
+                line-height: 1.7rem;
+                margin-top: -1rem;
+            }
+
+            @include --xsh {
+                font-size: 1.4rem;
+                line-height: 1.7rem;
+                margin-top: -1rem;
+            }
+        }
+    }
+
+    &__link-wrap {
+        &.success {
+            padding-top: 6rem;
+        }
+    }
+
+    &__title-link {
+        color: var(--primary);
+        display: flex;
+        font-weight: bold;
+        font-size: 1.4rem;
+        transition: 0.15s;
+        text-decoration: none;
+        padding-left: 0.2rem;
+        align-items: center;
+        & > .arrow-left {
+            fill: var(--primary);
+            margin-right: 1rem;
+        }
+    }
+
+    &__block {
+        text-align: center;
+        width: 30rem;
+        min-height: 15rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        &-logo {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
+    }
+
+    &__text {
+        color: var(--black);
+        font-size: 1.6rem;
+        font-weight: 700;
+    }
+
+    &__link {
+        text-transform: uppercase;
+        font-weight: 500;
+        font-size: 1.8rem;
+        line-height: 2.2rem;
+        color: var(--black);
+    }
+
+    &__registration {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
+
+    &__box {
+        &-title {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5rem;
+            width: 100%;
+
+            @include --sm {
+                margin-bottom: 3.5rem;
+            }
+
+            &_forgot {
+                .main-title__link {
+                    @include --xs {
+                        margin-right: 1rem;
+                    }
+                }
+            }
+        }
+        &-button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 5.5rem;
+            @include --sm {
+                margin-bottom: 3.5rem;
+            }
+            & > .button {
+                padding: 1.2rem 12.3rem;
+                font-weight: bold;
+                font-size: 2.4rem;
+                line-height: 2.9rem;
+
+                @include --sm {
+                    padding: 1rem 7rem;
+                    font-weight: bold;
+                    font-size: 1.8rem;
+                    line-height: normal;
+                }
+
+                @include --xs {
+                    padding: 0.9rem 6.6rem;
+                    line-height: 2.2rem;
+                }
+
+                &_forgot {
+                    @include --xs {
+                        padding: 0.9rem 2.5rem;
+                    }
+                }
+            }
+            &_forgot {
+                width: 100%;
+            }
+            &_registration {
+                margin-top: 5.5rem;
+            }
+        }
+        &-social {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            width: 100%;
+
+            &:after,
+            &:before {
+                content: '';
+                position: relative;
+                height: 0.2rem;
+                width: 100%;
+                background-color: #390792;
+            }
+
+            &:before {
+                margin-right: 3.6rem;
+                @include --sm {
+                    margin-right: 1rem;
+                }
+            }
+
+            &:after {
+                margin-left: 3.6rem;
+                @include --sm {
+                    margin-left: 1rem;
+                }
+            }
+
+            & > .button_simple {
+                margin-right: 1.5rem;
+                &:last-child {
+                    margin-right: 0;
+                }
+
+                @include --xs {
+                    margin-right: 1rem;
+                }
+            }
+        }
+
+        &-desc {
+            margin-top: 3.3rem;
+            margin-bottom: 6.6rem;
+            width: 100%;
+
+            @include --sm {
+                margin: 0;
+            }
+
+            @include --xsh {
+                margin: 0;
+            }
+        }
+    }
+}

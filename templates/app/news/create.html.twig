@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News create{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('newsCreateStore', {
+        id: id|default('')
+    }|redux_store_arguments) }}
+    {{ react_component('NewsCreate') }}
+
+{% endblock %}
+
+

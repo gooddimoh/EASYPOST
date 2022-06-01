@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Label create
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('labelCreateStore', {
+        type: type
+    }|redux_store_arguments) }}
+	{{ react_component('LabelCreate') }}
+
+{% endblock %}

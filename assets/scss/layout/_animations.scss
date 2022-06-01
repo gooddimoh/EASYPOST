@@ -1,0 +1,81 @@
+@keyframes slideIn {
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0rem);
+        opacity: 1;
+    }
+    0% {
+        transform: translateY(1rem);
+        opacity: 0;
+    }
+}
+
+@keyframes preloaderAnimation {
+    0% {
+        top: 4.8rem;
+        left: 4.8rem;
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        top: 0;
+        left: 0;
+        width: 9.6rem;
+        height: 9.6rem;
+        opacity: 0;
+    }
+}
+
+@keyframes rotate {
+    to {
+        -webkit-transform: rotate(1turn) translateZ(0);
+        transform: rotate(1turn) translateZ(0);
+    }
+}
+
+@keyframes bounceCheckBox {
+    50% {
+        font-size: 1.2rem;
+    }
+    75% {
+        font-size: 0.9rem;
+    }
+    100% {
+        font-size: 1.1rem;
+    }
+}
+
+@keyframes shake {
+    // check this keyframe when use notifications
+    0%,
+    25%,
+    83%,
+    100% {
+        transform: rotatez(0deg);
+    }
+    32.5%,
+    62.5% {
+        transform: rotatez(-5deg);
+    }
+    47.5%,
+    75.5% {
+        transform: rotatez(5deg);
+    }
+}
+
+@keyframes line {
+    // check this keyframe when use notifications
+    0% {
+        opacity: 1;
+    }
+    50%,
+    100% {
+        width: 5rem;
+        height: 4rem;
+        opacity: 0;
+    }
+}

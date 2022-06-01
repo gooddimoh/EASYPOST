@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{% if type == 1 %}
+		Sender create
+	{% endif %}
+	{% if type == 2 %}
+		Recipient create
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('addressCreateStore', {
+        id: id|default(''),
+        type: type
+    }|redux_store_arguments) }}
+	{{ react_component('AddressCreate') }}
+
+{% endblock %}

@@ -1,0 +1,131 @@
+// Colors
+html {
+    --background-color: #ffffff;
+    --background-color-empty: #f5f7ff;  // not use
+    --white: #ffffff;
+    --white-rgb: 255, 255, 255; // not use
+    --black: #000000;
+    --black-rgb: 0, 0, 0;
+    --gray: #909092;    // not use
+    --gray-rgb: 144, 144, 146;  // not use
+    --primary: #2a4cc5;
+    --primary-rgb: 45, 23, 210;
+    --primary-hover: #2a4cc5c7;
+    --text-hight: #333333;
+    --text-medium: #778ca2;
+    --text-medium-rgb: 119, 140, 162;   // not use
+    --text-medium-hover: #61768d;
+    --error: #b40000;
+    --error-rgb: 245, 108, 108; // not use
+    --error-hover: #f13a3a; // not use
+    --danger: #f7ab46;
+    --danger-rgb: 247, 171, 70; // not use
+    --danger-hover: #f59618;    // not use
+    --danger-shadow: #a36c25;   // not use
+    --current: #27ae60;
+    --current-rgb: 39, 174, 96; // not use
+    --bright-blue: #2d9cdb; // not use
+    --bright-blue-hover: #228dca;   // not use
+    --dark-blue: #2f80ed;   // not use
+    --shadow: #b5cdf5;
+    --border-color: #e7e3ff;
+    --inner-content: #fcfcfc;
+    --triangle: #354258;    // not use
+    --deep-color: #354258;
+    --deep-color-rgb: 53, 66, 88;   // not use
+    --deep-light: #495569;  // not use
+    --sidebar-logo: #2b354b;    // not use
+    --input-border: #c5c5c5;
+    --input-color: #354258; // not use
+    --disabled-color: #a8a8a8;
+    --disabled-color-rgb: 168, 168, 168;    // not use
+    --disabled-bg: #a6a6a6;
+    --disabled-bg-light: hsl(0, 0%, 95%);   // not use
+    --input-icon: #9f9f9f;  // not use
+    --input-icon-hover: #777777;    // not use
+    --sort-icon: #e7e3ff;
+    --switcher-bg: #ffffff;
+    --switcher-color: #495569;
+    --switcher-varied: var(--switcher-color);   // not use
+    --custom-bg: 0, 0, 0;   // not use
+    --link-hover: #5a5c5a;
+    --header-balance-bg: #f7f7f7;
+
+    --warn: #f03738;
+    --warn-rgb: 240, 55, 56;    // not use
+    --dropdown: #dddddd;
+    --placeholder-color: #747474;
+    --border-bottom: #c2c9d1;
+
+    --input-bg-color: #ffffff;
+    --forgot-color: #888888;
+
+    --news-bg: #f6f6f6;
+    --icon-gray: #9b9b9b;
+    --border-purple-heart: #6831dc;
+    --button-hover: #1e4ef5;
+    --day-picker-gray: #8b9898;
+    --table-colomn-gray: #fbfbfb;
+}
+
+html[data-theme='dark'] {
+    --background-color: #191c1f; //
+    --white: #e2e3e4; //
+    --white-rgb: 226, 227, 228; //
+    --black: #e2e3e4; //
+    --black-rgb: 226, 227, 228;
+    --primary: #5e8cdc; //
+    --primary-rgb: 94, 140, 220; //
+    --primary-hover: #356ac7; //
+    --text-hight: #76777e; //
+    --text-medium: #e2e3e4; //
+    --text-medium-rgb: 226, 227, 228; //
+    --text-medium-hover: #bec0c3; //
+    --error: #f56c6c;
+    --error-rgb: 245, 108, 108;
+    --error-hover: #f13a3a;
+    --danger: #f7ab46;
+    --danger-hover: #f59618;
+    --danger-shadow: #a36c25;
+    --current: #27ae60;
+    --current-rgb: 39, 174, 96;
+    --bright-blue: #2d9cdb;
+    --bright-blue-hover: #228dca;
+    --dark-blue: #2f80ed;
+    --shadow: rgba(255, 255, 255, 0.2); //
+    --border-color: #363b41; //
+    --inner-content: #252b32; //
+    --deep-color: #111315; //
+    --triangle: #e2e3e4; //
+    --deep-color-rgb: 53, 66, 88;
+    --deep-light: #495569;
+    --sidebar-logo: #000000; //
+    --input-border: #c5c5c5; //
+    --input-color: #e2e3e4; //
+    --input-bg-color: #363b41; //
+    --disabled-color: #a8a8a8;
+    --disabled-bg: #797979;
+    --disabled-bg-light: hsl(0, 0%, 95%);
+    --input-icon: #9f9f9f;
+    --input-icon-hover: #777777;
+    --sort-icon: #e2e3e4;
+    --switcher-bg: #363b41;
+    --switcher-color: #e2e3e4;
+    --switcher-varied: var(--switcher-color);
+    --custom-scrollbar: #797979; //
+    --custom-bg: 0, 0, 0;
+
+    --forgot-color: #888888; //
+}
+
+// Responsive
+$--xxl: 1679px; //max-width: 1679px;
+$--xl: 1439px; //max-width: 1439px;
+$--lg: 1279px; //max-width: 1279px;
+$--md: 1023px; //max-width: 1023px;
+$--sm: 767px; //max-width: 767px
+$--xs: 480px; //max-width: 479px;
+
+$--xsh: 450px; //max-height: 450px;
+
+$font: 'Montserrat', sans-serif;

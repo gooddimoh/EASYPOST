@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{% if addressBook.type.record == 1 %}
+		Edit sender
+	{% endif %}
+	{% if addressBook.type.record == 2 %}
+		Edit recipient
+	{% endif %}
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('addressEditStore', {
+        'id' : addressBook.id.value,
+        'name' : addressBook.name.value,
+        'description' : addressBook.description.value,
+        'city': addressBook.address.city,
+        'country': addressBook.address.country,
+        'state': addressBook.address.state,
+        'zip': addressBook.address.zip,
+        'street1': addressBook.address.street1,
+        'street2': addressBook.address.street2,
+        'options': addressBook.options.value,
+        'typeAddress': addressBook.type.address|trans,
+        'type': addressBook.type.record,
+        'email': addressBook.contact.email,
+        'code': addressBook.contact.code,
+        'phone': addressBook.contact.phone,
+    }|redux_store_arguments) }}
+	{{ react_component('AddressEdit') }}
+
+{% endblock %}

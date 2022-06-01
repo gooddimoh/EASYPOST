@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Carrier{% endblock %}
+
+{% block body %}
+    {{ redux_store('carrierStore',
+        { 'items': items, 'pagination': pagination, 'columns': columns}|redux_store_arguments) }}
+    {{ react_component('Carrier') }}
+{% endblock %}
+
+

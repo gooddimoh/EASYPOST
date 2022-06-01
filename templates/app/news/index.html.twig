@@ -1,0 +1,9 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}News{% endblock %}
+
+{% block body %}
+    {{ redux_store('newsStore',
+        { 'items': items, 'pagination': pagination, 'columns': columns}|redux_store_arguments) }}
+    {{ react_component('News') }}
+{% endblock %}

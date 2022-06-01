@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Analytics{% endblock %}
+
+{% block body %}
+    {{ redux_store('statisticsStore',
+        {'statistic': statistic}|redux_store_arguments) }}
+    {{ react_component('Statistics') }}
+{% endblock %}
+
+

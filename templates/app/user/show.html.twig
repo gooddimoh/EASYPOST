@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ user.name.value }}
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('userViewStore', {
+        'view': {
+            id: user.id.value,
+            name: user.name.value,
+            email: user.email.value,
+            phone: {
+                code: user.phone.code,
+                number: user.phone.number
+            },
+            photo: user.photo.value,
+            role: user.role.value,
+            status: user.status.value,
+            company: {
+                id: company.value,
+                name: company.label,
+            },
+        },
+        'pagination': pagination,
+        'items': items,
+        'columns': columns,
+    }|redux_store_arguments) }}
+	{{ react_component('UserView') }}
+
+{% endblock %}

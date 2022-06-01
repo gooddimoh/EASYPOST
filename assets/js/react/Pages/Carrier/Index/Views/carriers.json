@@ -1,0 +1,35 @@
+{
+    "FedexAccount": {
+        "title": "Fedex",
+        "items": [
+            "On-time express delivery worldwide",
+            "Long-haul delivery",
+            "Easy to use shipment paperwork",
+            "Free packaging",
+            "Sophisticated real-time tracking info",
+            "White glove services"
+        ]
+    },
+    "UpsAccount": {
+        "title": "Ups",
+        "items": [
+            "Worldwide package delivery",
+            "E-commerce shipping provider",
+            "Freight & ground shipping services",
+            "Same-day delivery express",
+            "Global presence",
+            "High brand equity"
+        ]
+    },
+    "UspsAccount": {
+        "title": "Usps",
+        "items": [
+            "Competitive flat rate",
+            "Guaranteed overnight delivery",
+            "24/7 shipping service",
+            "Insurance coverage of up to $5,000",
+            "Free package pickup",
+            "Delivers to mailboxes and P.O. boxes"
+        ]
+    }
+}

@@ -1,0 +1,125 @@
+.about {
+  flex-grow: 1;
+  font-family: $font;
+  padding: 0 2rem;
+
+  @include --xs {
+    padding: 0;
+  }
+
+  @include --xsh {
+    padding: 0;
+  }
+
+  &__title {
+    color: var(--primary);
+    font-size: 3rem;
+    line-height: normal;
+    font-weight: bold;
+    margin-bottom: 3rem;
+
+    @include --sm {
+      font-size: 2.4rem;
+      margin-bottom: 2rem;
+    }
+
+    @include --xs {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @include --xsh {
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__row {
+    display: flex;
+    margin-bottom: 3rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &--single {
+      background-color: var(--white);
+      text-align: center;
+      padding: 5rem;
+      margin: 0 -3rem;
+
+      @include --sm {
+        padding: 2rem 2.5rem;
+      }
+
+      @include --xs {
+        padding: 1.5rem;
+        margin: 0 -1.5rem;
+      }
+
+      @include --xsh {
+        padding: 1.5rem;
+        margin: 0 -1.5rem;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 1.8rem;
+    line-height: 2.3rem;
+    color: var(--black);
+
+    @include --xs {
+      font-size: 1.3rem;
+      line-height: 1.4rem;
+      & > p {
+        margin-bottom: 1.5rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    @include --xsh {
+      font-size: 1.3rem;
+      line-height: 1.4rem;
+      & > p {
+        margin-bottom: 1.5rem;
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  &__desc {
+    font-size: 2.4rem;
+    line-height: 3.1rem;
+    color: var(--black);
+    margin-bottom: 3rem;
+
+    @include --sm {
+      font-size: 1.8rem;
+      line-height: 2.4rem;
+      margin-bottom: 2rem;
+    }
+
+    @include --xs {
+      font-size: 1.4rem;
+      line-height: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    @include --xsh {
+      font-size: 1.4rem;
+      line-height: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  &__img {
+    @include --lg {
+      display: none;
+    }
+  }
+}

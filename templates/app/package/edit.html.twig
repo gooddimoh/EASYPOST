@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit package{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('packageEditStore', {
+        'id' : package.id.value,
+        'name' : package.name.value,
+        'price_month' : package.price.month,
+        'price_label' : package.price.label,
+        'price_additional' : package.price.additional,
+        'permissions' : package.permissions.value,
+        'available_company' : package.availableCompany.value,
+        'carriers' : carriers
+    }|redux_store_arguments) }}
+    {{ react_component('PackageEdit') }}
+
+{% endblock %}
+
+

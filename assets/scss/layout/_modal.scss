@@ -1,0 +1,332 @@
+.modal {
+    font-size: 1.4rem;
+    line-height: normal;
+    font-family: inherit;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transition: opacity 0.24s ease-in-out, visibility 0.24s ease-in-out;
+    z-index: 99990;
+    color: var(--black);
+    background-color: rgba(246, 246, 246, 0.7);
+
+    & .form {
+        background-color: transparent;
+        border-radius: 0;
+        overflow: auto;
+
+        &__body {
+            padding: 0;
+            border: none;
+            box-shadow: none;
+            border-radius: 0;
+        }
+
+        &__description {
+            color: var(--primary);
+        }
+    }
+
+    & .button {
+        padding: 1.35rem 1.5rem;
+    }
+
+    &__wrap {
+        max-height: 90%; // TODO: find another solution
+        min-width: 40rem;
+        max-width: 70rem;
+        background-color: var(--white);
+        transition: all 0.3s;
+        border-radius: 1.4rem;
+        box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        padding: 2rem;
+        margin: 0 2rem;
+
+        @include --xs {
+            min-width: 30rem;
+        }
+        @include --xsh {}
+    }
+
+    &__content {
+        background: var(--background-color);
+        border-radius: 0.4rem;
+        padding: 2.4rem 3.2rem 3.2rem;
+        margin: auto;
+        box-shadow: -0.4rem 0.4rem 1rem 0.7rem rgba($color: var(--black-rgb), $alpha: 0.3);
+        max-height: 100%;
+        width: 100%;
+        max-width: 61.2rem;
+        position: relative;
+
+        @include --xs {
+            margin: auto 1rem;
+        }
+    }
+
+    &__block {
+        display: flex;
+        justify-content: center;
+
+        & > .main-circle {
+            &:hover {
+                box-shadow: none;
+                .close {
+                    transform: rotate(90deg);
+                }
+            }
+        }
+
+        &_close {
+            position: absolute;
+            right: 0;
+
+            @include --xs {
+                right: -1.3rem;
+                z-index: 9;
+            }
+
+            @include --xsh {
+                right: -1.3rem;
+                z-index: 9;
+            }
+        }
+    }
+
+    &__text {
+        color: var(--text-hight);
+        font-size: 1.4rem;
+        line-height: 2rem;
+        margin-bottom: 2rem;
+        word-wrap: break-word;
+        text-align: center;
+
+        @include --xs {
+            margin-right: 1rem;
+            margin-left: 1rem;
+        }
+
+        @include --xsh {
+            margin-right: 1rem;
+            margin-left: 1rem;
+        }
+    }
+
+    &__title {
+        font-family: $font;
+        font-size: 3rem;
+        line-height: 3.2rem;
+        color: var(--black);
+        font-weight: 700;
+        margin-right: 1rem;
+
+        @include --xs {
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+        }
+
+        @include --xsh {
+            font-size: 1.8rem;
+            line-height: 2.2rem;
+        }
+    }
+
+    &__header,
+    &__footer {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    &__header,
+    &__body {
+        margin-bottom: 2rem;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &__header {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding-top: 3rem;
+
+        @include --xs {
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+        @include --xsh {
+            padding-top: 0;
+            margin-bottom: 0;
+        }
+    }
+
+    &__body {
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+
+        & > .form {
+            display: flex;
+            flex-direction: column;
+
+            &_funds-modal {
+                width: 45rem;
+
+                @include --xs {
+                    width: auto;
+                }
+
+                & div.custom-select__single-value {
+                    max-width: 33rem;
+                }
+            }
+        }
+        & > .table-wrap {
+            min-height: 50rem;
+            max-height: 80rem;
+            margin-bottom: 2rem;
+
+            @include --xs {
+                min-height: 30rem;
+                height: 35rem;
+                max-height: 50rem;
+            }
+
+            @include --xsh {
+                min-height: 18rem;
+                height: 15rem;
+                max-height: 25rem;
+            }
+        }
+
+        & > .table-wrap ~ .form {
+            overflow: visible;
+        }
+
+        .form {
+            padding: 0;
+            margin: 0;
+            .main-table {
+                &__head {
+                    .main-table__col {
+                        height: auto;
+                    }
+                    .sort {
+                        padding: 1.5rem;
+                    }
+                    .sort__link {
+                        margin-bottom: 0;
+                    }
+                }
+                &__body {
+                    .main-table__col {
+                        height: 5rem;
+                    }
+                    .main-table__row {
+                        @include --msm {
+                            transition: all 0.3s;
+                            &:hover {
+                                background-color: var(--input-border);
+                            }
+                        }
+                    }
+                }
+
+                &__info {
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+    &__footer {
+        .button {
+            padding: 1.35rem 3.5rem;
+            margin: 0 auto;
+
+            @include --xs {
+                padding: 0.85rem 2.8rem;
+            }
+
+            @include --xsh {
+                padding: 0.85rem 2.8rem;
+            }
+        }
+    }
+}
+
+.cropper {
+
+    @include --sm {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2rem;
+        & > .button {
+            padding: 1rem 2.5rem;
+        }
+    }
+    @include --xsh {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-top: 2rem;
+        & > .button {
+            padding: 1rem 2.5rem;
+        }
+    }
+    // Change this later
+    &__preview {
+        width: 15rem;
+        height: 15rem;
+        margin-bottom: 2rem;
+        display: flex;
+
+        @include --xs {
+            width: 9rem;
+            height: 9rem;
+            margin-bottom: 0;
+        }
+        @include --xsh {
+            width: 9rem;
+            height: 9rem;
+            margin-bottom: 0;
+        }
+
+        & > img {
+            max-width: 100%;
+            height: auto;
+        }
+    }
+
+    &__delete {
+        width: 1.5rem;
+        height: 2rem;
+        background-color: transparent;
+        margin-left: 1rem;
+        transition: all 0.3s;
+
+        &:hover {
+            & > .close {
+                transform: rotate(90deg);
+            }
+        }
+    }
+}
+
+.easy-crop {
+    height: 32rem;
+    margin-top: 4rem;
+    margin-bottom: 2rem;
+    position: relative;
+}

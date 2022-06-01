@@ -1,0 +1,160 @@
+.api-integration {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0 2rem;
+
+  &__title {
+    color: #3b4151;
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 150%;
+  }
+
+  &__suptitle {
+    font-size: 1.6rem;
+  }
+
+  &__block {
+    margin-bottom: 1rem;
+  }
+
+  &__item {
+    width: 100%;
+  }
+}
+.accordion {
+  &__title {
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 2rem;
+    width: 100%;
+    transition: all 0.4s;
+  }
+
+  &__suptitle {
+    font-size: 1.6rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  &__item {
+    margin-bottom: 2rem;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__info {
+    padding: 2rem 2.5rem;
+    background-color: white;
+    display: none;
+    overflow: hidden;
+    &.active {
+      display: block;
+    }
+  }
+
+  &__box {
+    position: relative;
+    &.active {
+      .accordion__icon {
+        transform: translateY(-50%) rotate(180deg);
+      }
+    }
+  }
+
+  &__icon {
+    position: absolute;
+    top: 50%;
+    right: 2rem;
+    transform: translateY(-50%);
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+  }
+
+  &__method {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+
+    & > span {
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+  }
+
+  &__block {
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+
+    &-title {
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+
+    &-box {
+      display: flex;
+      margin-left: 1rem;
+      margin-bottom: 0.5rem;
+      flex-wrap: wrap;
+
+      &__text {
+        display: flex;
+        flex-direction: column;
+        min-width: 10rem;
+
+        &:last-child {
+          padding-left: 1rem;
+        }
+        & > span {
+          color: red;
+        }
+      }
+
+      &_pl-1 {
+        padding-left: 1rem;
+      }
+
+      &_pl-2 {
+        padding-left: 2rem;
+      }
+
+      &_pl-4 {
+        padding-left: 4rem;
+      }
+    }
+
+    &-suptitle {
+      color: #ced1e1;
+      font-size: 1.2rem;
+    }
+
+    &-text {
+      padding-left: 1rem;
+      margin-bottom: 1rem;
+      word-wrap: break-word;
+
+      &_pl-2 {
+        padding-left: 2rem;
+      }
+
+      &_pl-4 {
+        padding-left: 4rem;
+      }
+    }
+
+    &-code {
+      position: relative;
+      padding-left: 1rem;
+      &:after {
+        content: '\007D';
+      }
+      &:before {
+        content: '\007B';
+      }
+    }
+  }
+}

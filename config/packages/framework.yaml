@@ -1,0 +1,26 @@
+framework:
+    secret: '%env(APP_SECRET)%'
+    default_locale: '%locale%'
+    form: false
+    trusted_hosts: ['%env(TRUSTED_HOSTS)%']
+
+    # Enables session support. Note that the session will ONLY be started if you read or write from it.
+    # Remove or comment this section to explicitly disable session support.
+    session:
+        handler_id: Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler
+        cookie_lifetime: 86400 # 24 часа время жизни куки сессии
+        cookie_secure: auto
+        cookie_samesite: lax
+        cookie_httponly: true
+        gc_maxlifetime: 54000  # 15 часов время простоя
+        gc_divisor: 1000
+
+    #esi: true
+    #fragments: true
+    php_errors:
+        log: true
+
+    serializer:
+        name_converter: 'serializer.name_converter.camel_case_to_snake_case'
+
+    validation: { enable_annotations: true }

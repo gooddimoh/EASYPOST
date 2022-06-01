@@ -1,0 +1,66 @@
+security:
+    # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
+    providers:
+        fetcher:
+            id: App\Security\UserProvider
+    encoders:
+        App\Security\UserIdentity: native
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+        login:
+            pattern: ^/api/login
+            stateless: true
+            anonymous: true
+            form_login:
+                check_path: /api/login
+                username_parameter: email
+                password_parameter: password
+                success_handler: lexik_jwt_authentication.handler.authentication_success
+                failure_handler: lexik_jwt_authentication.handler.authentication_failure
+        main:
+            anonymous: ~
+            lazy: true
+#            json_login:
+#                check_path: /login
+            user_checker: App\Security\UserChecker
+            guard:
+                authenticators:
+                    - App\Security\LoginFormAuthenticator
+                    - lexik_jwt_authentication.jwt_token_authenticator
+                entry_point: App\Security\LoginFormAuthenticator
+            remember_me:
+                secret: '%kernel.secret%'
+                lifetime: 86400
+                path: /
+
+            # activate different ways to authenticate
+
+            #            http_basic: true
+            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
+
+            form_login:
+                login_path: /login
+                check_path: /login
+            logout:
+                path: app_logout
+                target: /
+
+    always_authenticate_before_granting: true
+
+    # Easy way to control access for large sections of your site
+    # Note: Only the *first* access control that matches will be used
+    access_control:
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/registration, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/forgot, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/auth/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/packages/list, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/users/create, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/companies/create, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/auth/.*, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/funds/bank-transfer/callback, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/api/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, methods: [POST] }
+        - { path: ^/api, roles: IS_AUTHENTICATED_FULLY }
+        - { path: ^/, roles: IS_AUTHENTICATED_REMEMBERED }

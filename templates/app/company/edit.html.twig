@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit company{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('companyEditStore', {
+        'id' : company.id.value,
+        'name' : company.name.value,
+        'type' : company.type.value,
+        'photo' : company.photo.value,
+        'packagePlan' : company.package.id,
+    }|redux_store_arguments) }}
+    {{ react_component('CompanyEdit') }}
+
+{% endblock %}
+
+

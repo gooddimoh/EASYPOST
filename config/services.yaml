@@ -1,0 +1,117 @@
+# This file is the entry point to configure your own services.
+# Files in the packages/ subdirectory configure your dependencies.
+
+# Put parameters here that don't need to change on each machine where the app is deployed
+# https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
+parameters:
+    router.request_context.host: '%env(HOST_NAME)%'
+    router.request_context.scheme: '%env(HOST_SCHEME)%'
+#    asset.request_context.secure: true
+    locale: '%env(DEFAULT_LOCALE)%'
+    referral_percent: '2.6'
+    app_locales: en|ru
+    app_servers: eu|free|us
+    container.dumper.inline_factories: true
+    container.dumper.inline_class_loader: true
+
+services:
+    # default configuration for services in *this* file
+    _defaults:
+        autowire: true      # Automatically injects dependencies in your services.
+        autoconfigure: true # Automatically registers your services as commands, event subscribers, etc.
+        bind:
+            $locales: '%app_locales%'
+            $defaultLocale: '%locale%'
+
+    # makes classes in src/ available to be used as services
+    # this creates a service per class whose id is the fully-qualified class name
+    App\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Migrations,Tests,Kernel.php}'
+
+    # controllers are imported separately to make sure services can be injected
+    # as action arguments even if you don't extend any base controller class
+    App\Controller\:
+        resource: '../src/Controller'
+        tags: ['controller.service_arguments']
+
+    App\Model\User\Service\ResetTokenizer:
+        factory: ['@App\Model\User\Service\Factory\ResetTokenizerFactory', 'create']
+        arguments: ['PT1H']
+
+    Finesse\SwiftMailerDefaultsPlugin\SwiftMailerDefaultsPlugin:
+        arguments:
+            $defaults:
+                from:
+                    '%env(MAILER_FROM_EMAIL)%': '%env(MAILER_FROM_NAME)%'
+        tags:
+            - { name: swiftmailer.default.plugin }
+
+    Redis:
+        class: Redis
+        calls:
+            -   method: connect
+                arguments:
+                    - '%env(REDIS_HOST)%'
+            -   method: auth
+                arguments:
+                    - '%env(REDIS_PASSWORD)%'
+
+    Symfony\Component\HttpFoundation\Session\Storage\Handler\RedisSessionHandler:
+        arguments:
+            - '@Redis'
+            - ttl: '%env(REDIS_TTL)%'
+
+    Symfony\Component\HttpFoundation\Session\Session:
+        alias: Symfony\Component\HttpFoundation\Session\SessionInterface
+
+    limenius_react.react_renderer:
+        class: App\Renderer\CustomReactRenderer
+        arguments:
+            - '%kernel.project_dir%/public' # here you set the base path
+            - '%limenius_react.fail_loud%'
+            - '@limenius_react.context_provider'
+            - '@logger'
+        calls:
+            - [setPackage, ['@assets.packages', 'build/js/server-bundle.js']]
+
+    Anyx\LoginGateBundle\Service\BruteForceChecker:
+        alias: anyx.login_gate.brute_force_checker
+
+    App\Infrastructure\Services\Uploader\FileUploader:
+        arguments: ['@default.storage', '%env(STORAGE_BASE_URL)%']
+
+    PhpOffice\PhpSpreadsheet\Spreadsheet:
+        class: PhpOffice\PhpSpreadsheet\Spreadsheet
+
+    Sinergi\BrowserDetector\Browser:
+        class: Sinergi\BrowserDetector\Browser
+
+    App\Model\User\Service\PasswordHasher:
+        class: App\Model\User\Service\PasswordHasher
+        public: true
+
+    App\Events\Listener\User\Login\LoginListener:
+        tags:
+            - { name: 'kernel.event_listener', event: 'security.interactive_login' }
+
+    App\Infrastructure\Integrations\EasyPost\EasyPostClient:
+        arguments: ['%env(EASY_POST_KEY)%']
+
+    App\Infrastructure\Integrations\Stripe\StripeClient:
+        arguments: ['%env(STRIPE_KEY)%', '%env(STRIPE_WEBHOOK_SECRET)%']
+
+    App\Infrastructure\Integrations\PayPal\PayPalClient:
+        arguments: [ '%env(PAYPAL_ID)%', '%env(PAYPAL_SECRET)%' ]
+
+    App\Infrastructure\Integrations\Plaid\PlaidClient:
+        arguments: [ '%env(PLAID_CLIENT_ID)%', '%env(PLAID_CLIENT_SECRET)%', '%env(PLAID_ENVIRONMENT)%' ]
+
+    App\Model\User\Service\ContactUsSender:
+        arguments:
+            $adminEmails: ['%env(ADMIN_EMAILS)%']
+
+    App\Command\CreateRootCommand:
+        arguments:
+            $rootEmail: '%env(ROOT_EMAIL)%'
+            $rootPassword: '%env(ROOT_PASSWORD)%'

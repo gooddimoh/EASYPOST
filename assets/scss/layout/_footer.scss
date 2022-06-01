@@ -1,0 +1,167 @@
+.footer {
+  padding: 2rem 3rem;
+  background-color: var(--primary);
+  border-top: 2px solid #E5E5E5;
+  margin: 3rem -1rem 0 -1rem;
+
+  @include --sm {
+    margin: 1.5rem -1.5rem 0 -1.5rem;
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+  }
+  @include --xsh {
+    margin: 1.5rem -1.5rem 0 -1.5rem;
+    padding: 1.5rem 1.5rem 2.5rem 1.5rem;
+  }
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+
+    @include --md {
+      grid-template-rows: 1fr 1fr;
+      grid-template-columns: 1fr;
+    }
+
+    @include --sm {
+      grid-template-rows: 1fr 0fr;
+    }
+  }
+
+  &__contact {
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__content {
+    text-align: center;
+  }
+
+  &__phone,
+  &__email {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: var(--white);
+  }
+
+  &__info {
+    display: flex;
+    align-items: center;
+
+    @include --md {
+      justify-content: space-between;
+    }
+
+    @include --sm {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    @include --xsh {
+      flex-direction: row;
+    }
+  }
+
+  &__logo {
+    margin-right: 2rem;
+
+    @include --sm {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__block {
+    display: flex;
+    flex-direction: column;
+
+    @include --sm {
+      margin-bottom: 1rem;
+    }
+  }
+
+  &__menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1rem;
+
+    @include --xs {
+      flex-direction: column;
+    }
+  }
+
+  &__item {
+    margin-right: 7rem;
+    &:last-child {
+      margin-right: 0;
+    }
+
+    @include --xs {
+      margin-right: 0;
+      margin-bottom: 1rem;
+    }
+
+    @include --xsh {
+      margin-right: 2rem;
+    }
+  }
+
+  &__link {
+    font-size: 1.8rem;
+    line-height: 2.1rem;
+    color: var(--white);
+  }
+}
+
+.social {
+  @include --md {
+    display: none;
+  }
+  &__item {
+    background-color: var(--white);
+    border-radius: 50%;
+    padding: 0.8rem;
+    width: 5rem;
+    margin-left: auto;
+
+    @include --xs {
+      padding: 0.7rem;
+      width: 4rem;
+    }
+
+    @include --xsh {
+      padding: 0.7rem;
+      width: 4rem;
+    }
+  }
+
+  &__img {
+    width: 3.5rem;
+    height: 3.5rem;
+
+    @include --xs {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+
+    @include --xsh {
+      width: 2.5rem;
+      height: 2.5rem;
+    }
+  }
+
+  &_mobile {
+    display: none;
+
+    @include --md {
+      display: block;
+    }
+  }
+}
+
+.copyright {
+  color: var(--white);
+}

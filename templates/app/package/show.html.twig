@@ -1,0 +1,21 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ package.name.value }}
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('packageViewStore', {
+        'view': {
+            'id' : package.id.value,
+            'name' : package.name.value,
+            'price_month' : package.price.month,
+            'price_label' : package.price.label,
+            'permission' : package.permission.value,
+            'available_company' : package.availableCompany.value
+        },
+    }|redux_store_arguments) }}
+	{{ react_component('PackageView') }}
+
+{% endblock %}

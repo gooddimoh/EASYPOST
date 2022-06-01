@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Company create{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('companyCreateStore', {
+        id: id|default('')
+    }|redux_store_arguments) }}
+    {{ react_component('CompanyCreate') }}
+
+{% endblock %}
+
+

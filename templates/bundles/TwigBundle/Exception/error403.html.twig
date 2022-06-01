@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HTTP 403 Forbidden{% endblock %}
+
+{% block body %}
+    <div class="main-wrap">
+        <div class="error-page">
+            <h1 class="main-content__h1">HTTP 403 Forbidden</h1>
+            <p class="error-page__text">
+                The requested page couldn't be located. <br>Checkout for any URL
+                misspelling or <a class="error-page__link" href="{{ path('dashboard.index') }}">return to the homepage</a>.
+            </p>
+        </div>
+    </div>
+{% endblock %}

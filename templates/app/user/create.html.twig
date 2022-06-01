@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}User create{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('userCreateStore', {
+        id: id|default('')
+    }|redux_store_arguments) }}
+    {{ react_component('UserCreate') }}
+
+{% endblock %}
+
+

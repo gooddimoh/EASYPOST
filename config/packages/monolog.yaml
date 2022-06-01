@@ -1,0 +1,7 @@
+#parameters:
+#  slack_token: '%env(SLACK_TOKEN)%'
+#  slack_bot_name: '@@wowboost'
+#  slack_channel: '#wowboost_logs'
+#
+#monolog:
+#  channels: ['wowboost_logs'] # Change the channel name with your own one

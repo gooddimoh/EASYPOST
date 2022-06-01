@@ -1,0 +1,10 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Label
+{% endblock %}
+
+{% block body %}
+	{{ redux_store('labelStore',
+        { 'items': items, 'pagination': pagination, 'columns': columns}|redux_store_arguments) }}
+	{{ react_component('Label') }}
+{% endblock %}

@@ -1,0 +1,8 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reset{% endblock %}
+
+{% block body %}
+    {{ redux_store('resetStore', {token: token, error: error}|redux_store_arguments) }}
+    {{ react_component('Reset') }}
+{% endblock %}

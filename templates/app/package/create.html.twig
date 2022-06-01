@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Package create{% endblock %}
+
+{% block body %}
+
+    {{ redux_store('packageCreateStore', {
+        id: id|default(''),
+        'carriers' : carriers
+    }|redux_store_arguments) }}
+    {{ react_component('PackageCreate') }}
+
+{% endblock %}
+
+

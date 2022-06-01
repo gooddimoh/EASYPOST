@@ -1,0 +1,20 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit user
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('userEditStore', {
+        'csrf_token': csrf_token('authenticate'),
+        id: user.id.value,
+        name: user.name.value,
+        email: user.email.value,
+        role: user.role.value,
+        status: user.status.value,
+        photo: user.photo.value,
+        company: company.value,
+    }|redux_store_arguments) }}
+	{{ react_component('UserEdit') }}
+
+{% endblock %}

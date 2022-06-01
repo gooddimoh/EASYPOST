@@ -1,0 +1,58 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}LabelName
+{% endblock %}
+
+{% block body %}
+
+	{{ redux_store('labelViewStore', {
+        'view': {
+            'id' : label.id.value,
+            'type': label.type.value,
+            'sender': {
+                name: label.sender.name,
+                type: label.sender.type|trans,
+                code: label.sender.code,
+                phone: label.sender.phone,
+                email: label.sender.email,
+                street1: label.sender.street1,
+                street2: label.sender.street2,
+                city: label.sender.city,
+                state: label.sender.state,
+                country: label.sender.country,
+                zip: label.sender.zip,
+            },
+            'recipient': {
+                name: label.recipient.name,
+                type: label.recipient.type|trans,
+                code: label.recipient.code,
+                phone: label.recipient.phone,
+                email: label.recipient.email,
+                street1: label.recipient.street1,
+                street2: label.recipient.street2,
+                city: label.recipient.city,
+                state: label.recipient.state,
+                country: label.recipient.country,
+                zip: label.recipient.zip,
+            },
+            'price': label.shipment.price,
+            'parcel' : {
+                'weight': label.parcel.weight,
+                'height': label.parcel.height,
+                'length': label.parcel.length,
+            },
+            'packages': label.packages|map(p => {
+                'id': p.id,
+                'description': p.description.value,
+                'quantity': p.quantity.value|trans,
+                'weight': p.weight.value,
+                'price': p.price.value,
+            }),
+            'service': label.information.service,
+            'track': label.information.track,
+            'labelUrl': label.information.labelUrl,
+        }
+    }|redux_store_arguments) }}
+	{{ react_component('LabelView') }}
+
+{% endblock %}

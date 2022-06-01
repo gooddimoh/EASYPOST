@@ -1,0 +1,63 @@
+doctrine:
+    dbal:
+        # configure these for your database server
+        driver: 'pdo_pgsql'
+        server_version: '13'
+        charset: utf8
+        default_table_options:
+            charset: utf8
+            collate: -
+
+        types:
+            user_user_id: 'App\Model\User\Entity\User\Types\IdType'
+            company_company_id: 'App\Model\Company\Entity\Company\Types\IdType'
+            company_transaction_id: 'App\Model\Company\Entity\Transaction\Types\IdType'
+            company_package_id: 'App\Model\Company\Entity\Package\Types\IdType'
+            label_address_book_id: 'App\Model\Label\Entity\AddressBook\Types\IdType'
+            label_label_id: 'App\Model\Label\Entity\Label\Types\IdType'
+            label_carrier_id: 'App\Model\Label\Entity\Carrier\Types\IdType'
+            stripe_customer_id: 'App\Model\Stripe\Entity\Customer\Types\IdType'
+            stripe_charge_id: 'App\Model\Stripe\Entity\Charge\Types\IdType'
+            news_news_id: 'App\Model\News\Entity\News\Types\IdType'
+
+        url: '%env(resolve:DATABASE_URL)%'
+        schema_filter: '~^(?!post_index_seq)~'
+    orm:
+        auto_generate_proxy_classes: true
+        naming_strategy: doctrine.orm.naming_strategy.underscore_number_aware
+        auto_mapping: true
+        mappings:
+            User:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/User/Entity'
+                prefix: 'App\Model\User\Entity'
+                alias: User
+
+            Company:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Company/Entity'
+                prefix: 'App\Model\Company\Entity'
+                alias: Company
+
+            Label:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Label/Entity'
+                prefix: 'App\Model\Label\Entity'
+                alias: Label
+
+            Stripe:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/Stripe/Entity'
+                prefix: 'App\Model\Stripe\Entity'
+                alias: Stripe
+
+            News:
+                is_bundle: false
+                type: annotation
+                dir: '%kernel.project_dir%/src/Model/News/Entity'
+                prefix: 'App\Model\News\Entity'
+                alias: News
